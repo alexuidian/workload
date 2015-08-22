@@ -1,0 +1,159 @@
+#! /bin/bash
+
+cd /home/shubhamiit/workload
+
+
+echo hi
+
+workload=`cat workload`
+
+if [[ $workload == "writefile" ]];then
+
+	curr=`cat curr`
+
+	if [[ $curr == .3 ]];then
+		curr=.35
+		echo ".35" > curr
+		./writefile file1 "$curr" w 4 0 10007
+		cp file1 file2
+		./writefile file2 "$curr" m 4 0 1008
+		exit 0
+	fi
+	
+	
+	if [[ $curr == .35 ]];then
+		curr=.4
+		echo ".4" > curr
+		./writefile file1 "$curr" w 4 0 10007
+		cp file1 file2
+		./writefile file2 "$curr" m 4 0 1008
+		echo file changed to .4
+		exit 0
+	fi
+	
+	if [[ $curr == .4 ]];then
+		curr=.45
+		echo ".45" > curr
+		./writefile file1 "$curr" w 4 0 10007
+		cp file1 file2
+		./writefile file2 "$curr" m 4 0 1008
+		echo file changed to .45
+		exit 0
+	fi
+	
+	
+	if [[ $curr == .45 ]];then
+		curr=.5
+		echo ".5" > curr
+		./writefile file1 "$curr" w 4 0 10007
+		cp file1 file2
+		./writefile file2 "$curr" m 4 0 1008
+		echo file changed to .5
+		exit 0
+	fi
+	
+	
+	if [[ $curr == .5 ]];then
+		curr=.6
+		echo ".6" > curr
+		./writefile file1 "$curr" w 4 0 10007
+		cp file1 file2
+		./writefile file2 "$curr" m 4 0 1008
+		echo file changed to .6
+		exit 0
+	fi
+
+fi
+
+
+ 
+if [[ $workload == "ws" ]];then
+
+	curr=`cat curr`
+
+	if [[ $curr == 6 ]];then
+		echo "7" > curr
+		cp ws.f ws.f.active
+		exit 0
+	fi
+	
+	if [[ $curr == 7 ]];then
+		curr=8
+		echo "8" > curr
+		cp ws.f."$curr" ws.f.active
+		exit 0
+	fi
+	
+	if [[ $curr == 8 ]];then
+		curr=9
+		echo "9" > curr
+		cp ws.f."$curr" ws.f.active
+		exit 0
+	fi
+		
+	
+	if [[ $curr == 9 ]];then
+		curr=10
+		echo "10" > curr
+		cp ws.f."$curr" ws.f.active
+		exit 0
+	fi
+	
+	
+	if [[ $curr == 10 ]];then
+		curr=12
+		echo "12" > curr
+		cp ws.f."$curr" ws.f.active
+		exit 0
+	fi
+fi
+	
+if [[ $workload == "fs" ]];then
+	
+	curr=`cat curr`
+	
+	if [[ $curr == 6 ]];then
+		echo "7" > curr
+		cp fs.f fs.f.active
+		exit 0
+	fi
+	
+	if [[ $curr == 7 ]];then
+		curr=8
+		echo "8" > curr
+		cp wf.f."$curr" fs.f.active
+		exit 0
+	fi
+
+	if [[ $curr == 8 ]];then
+		curr=9
+		echo "9" > curr
+		cp fs.f."$curr" fs.f.active
+		exit 0
+	fi
+	
+	
+	if [[ $curr == 9 ]];then
+		curr=10
+		echo "10" > curr
+		cp fs.f."$curr" fs.f.active
+		exit 0
+	fi
+	
+	
+	if [[ $curr == 10 ]];then
+		curr=12
+		echo "12" > curr
+		cp fs.f."$curr" fs.f.active
+		exit 0
+	fi
+	
+	if [[ $curr == 12 ]];then
+		curr=14
+		echo "14" > curr
+		cp fs.f."$curr" fs.f.active
+		exit 0
+	fi
+	
+	
+fi

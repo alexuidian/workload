@@ -1,0 +1,62 @@
+#! /bin/bash
+
+
+cd /home/shubhamiit/workload
+workload=`cat workload`
+
+
+if [[ $workload == "writefile" ]];then
+
+date
+./writefile file1 .35 r 1024 600 10007 &
+./writefile file2 .35 r 1024 600 10007 
+
+date 
+
+fi
+
+if [[ $workload == "ws" ]];then
+
+date
+
+echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
+echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+echo "'" | sudo -S rm -rf /mnt/*
+date >> errors
+echo "'" | sudo -S filebench -f /home/shubhamiit/workload/ws.f.active 2>> errors
+date
+
+
+fi
+
+if [[ $workload == "fs" ]];then
+date
+echo "'" | sudo -S rm -rf /mnt/*
+echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
+echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+date >> errors
+echo "'" | sudo -S filebench -f /home/shubhamiit/workload/fs.f.active 2>> errors
+date
+fi
+
+#cd /home/shubhamiit/linux
+#echo "'" | sudo -S make clean 
+
+#echo "make started"
+#date
+#echo "'" | sudo -S make bzImage > /dev/null 
+#date
+#echo "'" | sudo -S make bzImage > /dev/null
+#date
+#echo "'" | sudo -S make bzImage > /dev/null
+#date
+#echo "'" | sudo -s make bzImage > /dev/null
+#date
+#echo "'" | sudo -s make bzImage > /dev/null
+#date
+#echo "'" | sudo -s make bzImage > /dev/null
+#date
+#echo "make ended" 
+#date
+
+
