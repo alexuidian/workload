@@ -23,6 +23,7 @@ echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 echo "'" | sudo -S rm -rf /mnt/*
 date >> errors
+tail fs.f.active
 echo "'" | sudo -S filebench -f /home/shubhamiit/workload/ws.f.active 2>> errors
 date
 
@@ -35,28 +36,10 @@ echo "'" | sudo -S rm -rf /mnt/*
 echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 date >> errors
+tail fs.f.active
 echo "'" | sudo -S filebench -f /home/shubhamiit/workload/fs.f.active 2>> errors
 date
 fi
 
-#cd /home/shubhamiit/linux
-#echo "'" | sudo -S make clean 
-
-#echo "make started"
-#date
-#echo "'" | sudo -S make bzImage > /dev/null 
-#date
-#echo "'" | sudo -S make bzImage > /dev/null
-#date
-#echo "'" | sudo -S make bzImage > /dev/null
-#date
-#echo "'" | sudo -s make bzImage > /dev/null
-#date
-#echo "'" | sudo -s make bzImage > /dev/null
-#date
-#echo "'" | sudo -s make bzImage > /dev/null
-#date
-#echo "make ended" 
-#date
 
 
