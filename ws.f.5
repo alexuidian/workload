@@ -1,13 +1,15 @@
 
 set $dir=/mnt
-set $nfiles=5000
+set $nfiles=7000
 set $meandirwidth=20
 set $meanfilesize=100k
 set $nthreads=10
 set $iosize=1m
 set $meanappendsize=16k
+set $dup=90
+set $comp=10
 
-define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=100
+define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=100,dup=$dup,comp=$comp
 define fileset name=logfiles,path=$dir,size=$meanfilesize,entries=1,dirwidth=$meandirwidth,prealloc
 
 define process name=filereader,instances=1

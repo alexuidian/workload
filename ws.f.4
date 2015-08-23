@@ -6,8 +6,8 @@ set $meanfilesize=100k
 set $nthreads=10
 set $iosize=1m
 set $meanappendsize=16k
-set $dup=100
-set $comp=100
+set $dup=10
+set $comp=90
 
 define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=100,dup=$dup,comp=$comp
 define fileset name=logfiles,path=$dir,size=$meanfilesize,entries=1,dirwidth=$meandirwidth,prealloc

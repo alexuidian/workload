@@ -70,90 +70,20 @@ fi
 if [[ $workload == "ws" ]];then
 
 	curr=`cat curr`
+	
+	curr=$((curr+1))
+	echo "$curr" > curr
+	cp ws.f."$curr" ws.f.active
 
-	if [[ $curr == 6 ]];then
-		echo "7" > curr
-		cp ws.f ws.f.active
-		exit 0
-	fi
-	
-	if [[ $curr == 7 ]];then
-		curr=8
-		echo "8" > curr
-		cp ws.f."$curr" ws.f.active
-		exit 0
-	fi
-	
-	if [[ $curr == 8 ]];then
-		curr=9
-		echo "9" > curr
-		cp ws.f."$curr" ws.f.active
-		exit 0
-	fi
-		
-	
-	if [[ $curr == 9 ]];then
-		curr=10
-		echo "10" > curr
-		cp ws.f."$curr" ws.f.active
-		exit 0
-	fi
-	
-	
-	if [[ $curr == 10 ]];then
-		curr=12
-		echo "12" > curr
-		cp ws.f."$curr" ws.f.active
-		exit 0
-	fi
 fi
 	
 if [[ $workload == "fs" ]];then
 	
 	curr=`cat curr`
 	
-	if [[ $curr == 6 ]];then
-		echo "7" > curr
-		cp fs.f fs.f.active
-		exit 0
-	fi
-	
-	if [[ $curr == 7 ]];then
-		curr=8
-		echo "8" > curr
-		cp wf.f."$curr" fs.f.active
-		exit 0
-	fi
-
-	if [[ $curr == 8 ]];then
-		curr=9
-		echo "9" > curr
-		cp fs.f."$curr" fs.f.active
-		exit 0
-	fi
-	
-	
-	if [[ $curr == 9 ]];then
-		curr=10
-		echo "10" > curr
-		cp fs.f."$curr" fs.f.active
-		exit 0
-	fi
-	
-	
-	if [[ $curr == 10 ]];then
-		curr=12
-		echo "12" > curr
-		cp fs.f."$curr" fs.f.active
-		exit 0
-	fi
-	
-	if [[ $curr == 12 ]];then
-		curr=14
-		echo "14" > curr
-		cp fs.f."$curr" fs.f.active
-		exit 0
-	fi
+	curr=$((curr+1))
+	echo "$curr" > curr
+	cp fs.f."$curr" fs.f.active
 	
 	
 fi
