@@ -23,7 +23,7 @@ echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 echo "'" | sudo -S rm -rf /mnt/*
 date >> errors
-tail fs.f.active
+head ws.f.active
 echo "'" | sudo -S filebench -f /home/shubhamiit/workload/ws.f.active 2>> errors
 date
 
@@ -36,7 +36,7 @@ echo "'" | sudo -S rm -rf /mnt/*
 echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 date >> errors
-tail fs.f.active
+head fs.f.active
 echo "'" | sudo -S filebench -f /home/shubhamiit/workload/fs.f.active 2>> errors
 date
 fi
