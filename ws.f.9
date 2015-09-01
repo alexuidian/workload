@@ -1,11 +1,11 @@
 set $dir=/mnt
-set $nfiles=50
+set $nfiles=36
 set $meandirwidth=20
 set $meanfilesize=11000k
 set $nthreads=10
 set $iosize=1m
 set $meanappendsize=16k
-set $dup=90
+set $dup=10
 set $comp=90
 
 define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=100,dup=$dup,comp=$comp
