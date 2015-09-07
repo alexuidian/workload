@@ -5,11 +5,11 @@ cd /home/shubhamiit/workload
 workload=`cat workload`
 
 
-if [[ $workload == "writefile" ]];then
+if [[ $workload == "rr" ]];then
 
 date
-./writefile file1 .35 r 1024 600 10007 &
-./writefile file2 .35 r 1024 600 10007 
+echo "'" | sudo -S sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+./writefile file1 .35 r 1024 600 10007
 
 date 
 
