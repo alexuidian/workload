@@ -16,7 +16,11 @@ host = '0.0.0.0'
 port = 44445
 s.bind((host, port))
 s.listen(5)
-run('ping -c 10 10.129.26.178')
+
+run('/etc/init.d/networking restart')
+run('ping -c 10 10.129.28.187')
+
+
 
 while True:
         c, addr = s.accept()
