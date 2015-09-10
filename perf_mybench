@@ -4,6 +4,13 @@
 cd /home/shubhamiit/workload
 workload=`cat workload`
 
+if [[ workload == "make" ]];then
+
+    cd /home/shubhamiit/linux
+    make clean
+    make
+fi
+
 
 if [[ $workload == "rr" ]];then
 
