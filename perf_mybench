@@ -5,10 +5,12 @@ cd /home/shubhamiit/workload
 workload=`cat workload`
 
 if [[ $workload == "make" ]];then
-
+	
+    date
     cd /home/shubhamiit/linux
-    make clean
-    make
+    make clean > /dev/null 2> /dev/null
+    make > /dev/null 2> /dev/null
+    date
 fi
 
 
