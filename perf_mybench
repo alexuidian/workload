@@ -6,6 +6,7 @@ workload=`cat workload`
 
 if [[ $workload == "make" ]];then
 	
+    echo "Workload: make"	
     date
     cd /home/shubhamiit/linux
     make clean > /dev/null 2> /dev/null
