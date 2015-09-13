@@ -1,5 +1,5 @@
 set $dir=/mnt
-set $nfiles=60
+set $nfiles=40
 set $meandirwidth=20
 set $meanfilesize=11000k
 set $nthreads=10
