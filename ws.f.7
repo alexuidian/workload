@@ -1,12 +1,12 @@
 set $dir=/mnt
-set $nfiles=52
+set $nfiles=700
 set $meandirwidth=20
-set $meanfilesize=11000k
-set $nthreads=10
+set $meanfilesize=1100k
+set $nthreads=150
 set $iosize=1m
 set $meanappendsize=16k
-set $dup=10
-set $comp=90
+set $dup=80
+set $comp=15
 
 define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=100,dup=$dup,comp=$comp
 define fileset name=logfiles,path=$dir,size=$meanfilesize,entries=1,dirwidth=$meandirwidth,prealloc
@@ -50,7 +50,7 @@ define process name=filereader,instances=1
   }
 }
 
-run 900
+run 600
 
 echo  "Web-server Version 3.0 personality successfully loaded"
 usage "Usage: set \$dir=<dir>"
